@@ -1,0 +1,5 @@
+All the web service request will be going to Controllers
+
+Based on Controllers request operation will be going to done in Model class
+
+Response will be sent by View Class
