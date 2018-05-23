@@ -8,12 +8,16 @@
 	 * Model Class
 	 */
 
-	define("BASE_URL","");
-	define("DB_HOST",'localhost');
-	define("DB_USER",'root');
-	define("DB_PASSWORD",'root');
-	define("DB_NAME",'carpool');
-	define("EMAIL",'');
-	define("ROOT_FOLDER","../");
-	define("DB_PORT",'3306');
+	class Config	{
+		public function __construct()	{
+			define("BASE_URL","");
+			define("DB_HOST",'localhost');
+			define("DB_USER",'root');
+			define("DB_PASSWORD",'root');
+			define("DB_NAME",'carpool');
+			define("EMAIL",'');
+			define("ROOT_FOLDER","../");
+			define("DB_PORT",'3306');
+		}
+	}
 ?>
