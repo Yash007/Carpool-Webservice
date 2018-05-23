@@ -7,5 +7,7 @@
 	 * File Name: index.php
 	 * Model Class
 	 */
-
+	class Users	{
+		
+	}
 ?>
