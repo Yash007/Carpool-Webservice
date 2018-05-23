@@ -7,7 +7,18 @@
 	 * File Name: index.php
 	 * Model Class
 	 */
-	class Users	{
+	
+	include_once("Connection.php");
+	class Users extends Connection	{
 		
+		var $sql;
+		var $connection;
+		public function __construct()	{
+			$this->connection = new Connection();
+			$this->connection -> connect();
+		}
 	}
+	$users = new Users();
+	
+	
 ?>
