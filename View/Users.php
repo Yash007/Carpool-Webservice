@@ -8,4 +8,15 @@
 	 * View Class
 	 */
 
+	class Users	{
+		
+		public function __construct()	{
+				
+		}
+		
+		public function getAllUsers($result)	{
+			header("Content-type:Application/json");
+			print json_encode($result);
+		}
+	}
 ?>

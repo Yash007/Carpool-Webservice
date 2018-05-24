@@ -19,7 +19,6 @@
 		var $dsn;
 		
 		public function __construct()	{
-			$this->config = new Config();
 			$this->dbHost = DB_HOST;
 			$this->dbName = DB_NAME;
 			$this->dbUserName = DB_USER;
@@ -30,7 +29,7 @@
 		public function connect()	{
 			try	{
 				$this->pdo = new PDO($this->dsn,$this->dbUserName,$this->dbPassword);
-				echo "Connected";
+				return $this->pdo;
 			}
 			catch (PDOException $e)	{
 				echo ($e->getMessage());
