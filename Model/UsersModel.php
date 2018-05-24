@@ -9,16 +9,39 @@
 	 */
 	
 	include_once("Connection.php");
+	include_once("../View/Users.php");
+	
 	class UsersModel extends Connection	{
 		
-		var $sql;
-		var $connection;
+		var $sql;				//SQL queries will be storing here
+		var $connection;		//Connection file Object
+		var $statement;			//Statement Will be Queries result
+		var $pdo;				// PDO will be connection Object
+		var $users;
+		
 		public function __construct()	{
 			$this->connection = new Connection();
-			$this->connection -> connect();
+			$this->pdo = $this->connection -> connect();
+			$this->users = new Users();
 		}
 		
 		public function getAllUsers()	{
+			$this->sql = "select * from users";
+			$this->statement = $this -> pdo -> query($this->sql);
+			
+			$result = array();
+			foreach ($this->statement as $row)	{
+				$temp['uId'] = $row['uId'];
+				$temp['uFirstName'] = $row['uFirstName'];
+				$temp['uLastName'] = $row['uLastName'];
+				$temp['uEmail'] = $row['uEmail'];
+				$temp['uPassword'] = $row['uPassword'];
+				$temp['uBirthday'] = $row['uBirthday'];
+				
+				array_push($result, $temp);
+			}
+			
+			$this->users -> getAllUsers($result);
 			
 		}
 		
