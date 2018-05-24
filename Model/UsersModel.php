@@ -41,14 +41,30 @@
 				array_push($result, $temp);
 			}
 			
-			$this->users -> getAllUsers($result);
+			$this->users -> getAllUsers(json_encode($result));
 			
 		}
 		
 		
 		//Function for display Profile as per User
-		public function getUserById()	{
+		public function getUserById($id)	{
+			$this -> sql = "select * from users where uId=:id";
+			$this->statement = $this->pdo -> prepare($this->sql);
+			$this->statement -> execute([':id' => $id]);
 			
+			$result = array();
+			foreach ($this->statement as $row)	{
+				$temp['uId'] = $row['uId'];
+				$temp['uFirstName'] = $row['uFirstName'];
+				$temp['uLastName'] = $row['uLastName'];
+				$temp['uEmail'] = $row['uEmail'];
+				$temp['uPassword'] = $row['uPassword'];
+				$temp['uBirthday'] = $row['uBirthday'];
+				
+				array_push($result, $temp);
+			}
+			
+			$this->users -> getUserById(json_encode($result));
 		}
 		
 		
