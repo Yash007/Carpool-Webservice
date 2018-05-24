@@ -41,7 +41,7 @@
 				array_push($result, $temp);
 			}
 			
-			$this->users -> getAllUsers($result);
+			$this->users -> getAllUsers(json_encode($result));
 			
 		}
 		
