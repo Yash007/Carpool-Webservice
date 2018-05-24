@@ -26,6 +26,9 @@
 				case "all":
 					$this -> userModelObject -> getAllUsers();
 					break;
+				case "single":
+					$this -> userModelObject -> getUserById($_GET['id']);
+					break;
 				default:
 					echo "Invalid Argument for Action menu";
 					break;

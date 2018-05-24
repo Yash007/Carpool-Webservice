@@ -13,10 +13,15 @@
 		
 		var $rest;
 		public function __construct()	{
-			$this->rest = new Rest(); 		
+			$this->rest = new Rest();
 		}
 		
 		public function getAllUsers($result)	{
+			$this->rest->setHTTPHeaders("Application/json",200);
+			print $result;
+		}
+		
+		public function getUserById($result)	{
 			$this->rest->setHTTPHeaders("Application/json",200);
 			print $result;
 		}
